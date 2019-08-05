@@ -113,7 +113,7 @@ cdef class BloomFilter:
 
             hash_seeds = array.array('I')
             hash_seeds.extend([random.getrandbits(32) for i in range(num_hashes)])
-            test = hash_seeds.tostring()
+            test = hash_seeds.tobytes()
             seeds = test
 
             # If a filename is provided, we should make a mmap-file
