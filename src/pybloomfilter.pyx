@@ -172,7 +172,7 @@ cdef class BloomFilter:
             self._assert_open()
             return self._bf.array.bits
 
-    property num_items:
+    property num_elem:
         def __get__(self):
             self._assert_open()
             return self._bf.elem_count  
@@ -278,7 +278,6 @@ cdef class BloomFilter:
 
     def __len__(self):
         self._assert_open()
-        return self._bf.elem_count
         if not self._bf.count_correct:
             raise IndeterminateCountError("Length of %s object is unavailable "
                                           "after intersection or union called." %
