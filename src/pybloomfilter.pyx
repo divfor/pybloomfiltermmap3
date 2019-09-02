@@ -172,6 +172,11 @@ cdef class BloomFilter:
             self._assert_open()
             return self._bf.array.bits
 
+    property num_items:
+        def __get__(self):
+            self._assert_open()
+            return self._bf.elem_count  
+
     property name:
         def __get__(self):
             self._assert_open()
