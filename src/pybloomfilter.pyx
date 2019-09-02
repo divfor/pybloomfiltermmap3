@@ -278,6 +278,7 @@ cdef class BloomFilter:
 
     def __len__(self):
         self._assert_open()
+        return self._bf.elem_count
         if not self._bf.count_correct:
             raise IndeterminateCountError("Length of %s object is unavailable "
                                           "after intersection or union called." %
